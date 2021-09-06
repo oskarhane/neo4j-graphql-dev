@@ -1,6 +1,6 @@
 type Actor {
     id: ID!
-    name: String
+    name: String!
     actedIn: [Movie] @relationship(direction: OUT, type: "ACTED_IN")
 }
 
