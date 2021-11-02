@@ -1,11 +1,15 @@
 type Actor {
-    id: ID!
+    id: ID! @id
     name: String!
-    actedIn: [Movie] @relationship(direction: OUT, type: "ACTED_IN")
+    actedIn: [Movie] @relationship(direction: OUT, type: "ACTED_IN", properties: "RelProps")
 }
 
 type Movie {
-    id: ID!
+    id: ID! @id
     title: String!
     actors: [Actor] @relationship(direction: IN, type: "ACTED_IN")
+}
+
+interface RelProps @relationshipProperties {
+    screenTime: Float!
 }
